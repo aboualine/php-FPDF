@@ -21,23 +21,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $pdf->Image('background-annonce.png', 0, 0, 210, 297);
     
     // Title
-    $pdf->SetFont('Arial', 'B', 24);
-    $pdf->SetXY(10, 20);
+    $pdf->SetFont('Arial', 'B', 20);
+    $pdf->SetTextColor(255, 255, b: 255);
+    $pdf->SetXY(10, 60);
     $pdf->Cell(190, 10, $title, 0, 1, 'C');
     
     // Writer Info
     $pdf->SetFont('Arial', '', 10);
-    $pdf->SetXY(10, 40);
+    $pdf->SetXY(10, 0);
+    $pdf->SetTextColor(0, 0, b: 0);
     $pdf->MultiCell(0, 6, "Name: $name\nPhone: $phone\nEmail: $email", 0, 'L');
     
     // Object
     $pdf->SetFont('Arial', 'B', 14);
-    $pdf->SetXY(10, 70);
+    $pdf->SetXY(10, 120);
     $pdf->Cell(190, 10, "Subject: $object", 0, 1, 'L');
     
     // Message
     $pdf->SetFont('Arial', '', 12);
-    $pdf->SetXY(10, 90);
+    $pdf->SetXY(10, 140);
     $pdf->MultiCell(0, 6, $message, 0, 'L');
     
     // Output PDF
@@ -73,6 +75,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="card-body">
             <form action="pdf.php" method="POST">
                 <div class="mb-3">
+                    <label  class="form-label">Title</label>
+                    <input type="text" name="title" class="form-control" required><br>
+                </div>
+            
+                <div class="mb-3">
                     <label class="form-label">Nom et Prénom</label>
                     <input type="text" name="name" class="form-control" required>
                 </div>
@@ -89,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <div class="mb-3">
                     <label class="form-label">Objet</label>
-                    <input type="text" name="subject" class="form-control" required>
+                    <input type="text" name="object" class="form-control" required>
                 </div>
 
                 <div class="mb-3">
