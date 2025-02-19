@@ -1,5 +1,5 @@
 <?php
-require('fpdf.php');
+require('fpdf186/fpdf.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = $_POST['title'];
