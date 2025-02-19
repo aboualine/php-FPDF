@@ -47,25 +47,62 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Email Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Générateur de PDF</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
-    <form method="post">
-        <label>Title:</label>
-        <input type="text" name="title" required><br>
-        <label>Name:</label>
-        <input type="text" name="name" required><br>
-        <label>Phone:</label>
-        <input type="text" name="phone" required><br>
-        <label>Email:</label>
-        <input type="email" name="email" required><br>
-        <label>Object:</label>
-        <input type="text" name="object" required><br>
-        <label>Message:</label>
-        <textarea name="message" required></textarea><br>
-        <button type="submit">Generate PDF</button>
-    </form>
+
+<div class="container">
+    <div class="card shadow-sm">
+        <div class="card-header text-center bg-primary text-white">
+            <h4>Formulaire de génération PDF</h4>
+        </div>
+        <div class="card-body">
+            <form action="pdf.php" method="POST">
+                <div class="mb-3">
+                    <label class="form-label">Nom et Prénom</label>
+                    <input type="text" name="name" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Téléphone</label>
+                    <input type="text" name="phone" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Objet</label>
+                    <input type="text" name="subject" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Message</label>
+                    <textarea name="message" class="form-control" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Générer PDF</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
