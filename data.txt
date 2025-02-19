@@ -1,0 +1,7 @@
+Title: TEST1
+Name: mohamed aboualine
+Phone: 0628579626
+Email: mohamedaboualine@gmail.com
+Object: premiere test pour le code
+Message: alors ici c'est rien juste une text sans context
+
